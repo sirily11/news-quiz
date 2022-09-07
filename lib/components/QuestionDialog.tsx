@@ -4,6 +4,7 @@ import {
   Button,
   Card,
   Checkbox,
+  Container,
   Dialog,
   FormControlLabel,
   FormGroup,
@@ -69,7 +70,7 @@ export default function QuestionDialog(props: Props) {
       return;
     }
     getImage();
-  }, [image]);
+  }, [image, questions]);
 
   return (
     <Dialog
@@ -86,29 +87,31 @@ export default function QuestionDialog(props: Props) {
           <Typography>Questions</Typography>
         </Toolbar>
       </AppBar>
-      <Stack p={2} spacing={2} ref={ref} mt={5}>
-        {questions.map((question, index) => (
-          <QuestionDisplay
-            key={index}
-            index={index}
-            question={question}
-            isEditable={isEditable}
-            updateQuestion={(question) => {
-              questions[index] = question;
-              setQuestions([...questions]);
-            }}
-          />
-        ))}
+      <Container>
+        <Stack p={2} spacing={2} ref={ref} mt={8}>
+          {questions.map((question, index) => (
+            <QuestionDisplay
+              key={index}
+              index={index}
+              question={question}
+              isEditable={isEditable}
+              updateQuestion={(question) => {
+                questions[index] = question;
+                setQuestions([...questions]);
+              }}
+            />
+          ))}
 
-        <Button
-          variant="contained"
-          onClick={() => {
-            onSubmit();
-          }}
-        >
-          {isEditable ? "Submit" : "Download screenshot"}
-        </Button>
-      </Stack>
+          <Button
+            variant="contained"
+            onClick={() => {
+              onSubmit();
+            }}
+          >
+            {isEditable ? "Submit" : "Download screenshot"}
+          </Button>
+        </Stack>
+      </Container>
     </Dialog>
   );
 }
@@ -161,7 +164,7 @@ function QuestionDisplay(props: QuestionDisplayProps) {
       message: "correct",
       severity: "success",
     };
-  }, [props.question]);
+  }, [props.question, props.isEditable]);
 
   return (
     <Card variant="outlined" sx={{ p: 2 }}>
@@ -197,7 +200,7 @@ function MultiselectQuestion(props: QuestionDisplayProps) {
                 props.question.choices![index].checked = checked;
                 props.updateQuestion(props.question, props.index);
               }}
-              checked={choice.checked}
+              checked={choice.checked ?? false}
             />
           }
           label={choice.title}

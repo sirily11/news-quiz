@@ -1,26 +1,75 @@
 # yaml-language-server: $schema=../../lib/question.schema.json
 
-- title: "What is the answer to life, the universe and everything?"
-  type: "multiselect"
-  choices:
-    - title: "42"
-      correct: false
-    - title: "43"
-      correct: true
-  explanation: "The answer is 42"
-  hint: Nope
-
-- title: "What is the answer to life, the universe and everything?"
+- title: 请简单概括全文内容
   type: "text"
-  explanation: "The answer is 42"
-  hint: Nope
-
-- title: "What is the answer to life, the universe and everything?"
-  type: "select"
+  hint: 大概讲了哪些挑战和解决方案
+- title: 哪个省人口老龄化最严重
+  type: select
+  explanation:  while Shandong has the largest elderly population with 21.51 million, equivalent to 21.15 per cent of its citizens.
   choices:
-    - title: "42"
+    - title: 北京
       correct: false
-    - title: "43"
+    - title: 辽宁
       correct: false
-  explanation: "The answer is 42"
-  hint: Nope
+    - title: 广东
+      correct: false
+    - title: 山东
+      correct: true
+    - title: 河南
+      correct: false
+- title: 根据文章内容，人口老龄化严重的省份集中在哪里
+  type: select
+  explanation: The provinces with the largest proportion of elderly residents are located primarily in northern China, the media report said. Guangdong, the largest province by gross domestic product, has the third lowest portion of its population aged 60 or over at 12.73 per cent, after Tibet and Xinjiang.
+  choices:
+    - title: 东北
+      correct: true
+    - title: 华北
+      correct: false
+    - title: 华东
+      correct: false
+    - title: 华南
+      correct: false
+    - title: 华中
+      correct: false
+- title: 根据文章内容，人口老龄化的省份，是哪些因素导致的
+  type: select
+  explanation: So far pension deficits are only confined to certain areas, including the northeast rust belt, where there is an outflow of young people due to poor employment opportunities. 
+  choices:
+    - title: 人口结构
+      correct: false
+    - title: 经济发展
+      correct: false
+    - title: 政策
+      correct: false
+    - title: 就业
+      correct: true
+- title: 人口老龄化更容易给下列哪个地区的人带来压力，为什么
+  type: text
+  explanation: Chen said the ageing problem would put pressure on support for elderly in urban areas, who primarily received government pensions. The rural welfare system was less comprehensive and old people were likely to rely more on families. 
+
+- title: "请翻译下面的句子: Meanwhile, more than 80 per cent of elderly citizens suffer from at least one chronic disease, said the China Research Centre on Ageing in a 2020 report – a potentially huge burden for the medical services. "
+  type: text
+
+- title: 现在投资下面哪个行业更容易赚钱
+  type: multiselect
+  choices:
+    - title: 养老
+      correct: true
+    - title: 托儿所
+      correct: false
+    - title: 健康饮食
+      correct: true
+    - title: 潮流时装
+      correct: false
+    - title: 老年时装
+      correct: true
+    - title: 电子产品
+      correct: false
+    - title: 健康保险
+      correct: true
+    - title: 教育
+      correct: false
+
+- title: 政府做了哪些努力为解决人口老龄化
+  type: text
+  explanation: State Council called for an additional 9 million beds for nursing homes and a 55 per cent increase in beds for elderly people with disabilities by 2025. The proportion of geriatric medicine departments in level two hospitals – which are usually found in medium-sized cities or countries – is expected to reach more than 60 per cent over the same period.
