@@ -1,0 +1,39 @@
+{
+  "title": "Quiz question schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string"
+      },
+      "hint": {
+        "type": "string"
+      },
+      "choices": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "correct": {
+              "type": "boolean"
+            }
+          },
+          "required": ["title", "correct"]
+        }
+      },
+      "explanation": {
+        "type": "string"
+      },
+      "type": {
+        "type": "string",
+        "enum": ["select", "text", "multiselect"]
+      }
+    },
+    "required": ["title", "type"],
+    "additionalProperties": false
+  }
+}

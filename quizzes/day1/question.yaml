@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../lib/question.schema.json
+
+- title: "What is the answer to life, the universe and everything?"
+  type: "multiselect"
+  choices:
+    - title: "42"
+      correct: false
+    - title: "43"
+      correct: true
+  explanation: "The answer is 42"
+  hint: Nope
+
+- title: "What is the answer to life, the universe and everything?"
+  type: "text"
+  explanation: "The answer is 42"
+  hint: Nope
+
+- title: "What is the answer to life, the universe and everything?"
+  type: "select"
+  choices:
+    - title: "42"
+      correct: false
+    - title: "43"
+      correct: false
+  explanation: "The answer is 42"
+  hint: Nope
