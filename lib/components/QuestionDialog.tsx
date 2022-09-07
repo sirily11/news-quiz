@@ -44,6 +44,9 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+// promise based sleep function
+const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
 export default function QuestionDialog(props: Props) {
   const ref = createRef();
   const [questions, setQuestions] = React.useState(props.questions);
@@ -60,9 +63,13 @@ export default function QuestionDialog(props: Props) {
     a.click();
   };
 
-  const onSubmit = React.useCallback(() => {
-    setIsEditable(false);
-  }, [getImage, questions]);
+  const onSubmit = React.useCallback(async () => {
+    if (isEditable) {
+      setIsEditable(false);
+      return;
+    }
+    getImage();
+  }, [image]);
 
   return (
     <Dialog
@@ -97,11 +104,9 @@ export default function QuestionDialog(props: Props) {
           variant="contained"
           onClick={() => {
             onSubmit();
-            getImage();
           }}
-          disabled={!isEditable}
         >
-          Submit
+          {isEditable ? "Submit" : "Download screenshot"}
         </Button>
       </Stack>
     </Dialog>

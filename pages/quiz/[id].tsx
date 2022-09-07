@@ -3,6 +3,8 @@ import {
   Box,
   Button,
   Card,
+  CardMedia,
+  Container,
   Dialog,
   IconButton,
   Pagination,
@@ -42,26 +44,36 @@ export default function Index({ title, contents, questions }: Props) {
           <Typography textTransform={"capitalize"}>{title}</Typography>
         </Toolbar>
       </AppBar>
-      <Stack p={2} spacing={1} mt={"52px"}>
-        <ReactMarkdown>{contents[currentPage]}</ReactMarkdown>
-        {contents.length > 1 && (
-          <Pagination
-            count={contents.length}
-            onChange={(e, page) => setCurrentPage(page)}
+      <Container>
+        <Stack p={2} spacing={1} mt={"52px"}>
+          <ReactMarkdown
+            components={{
+              p: (props: any) => (
+                <Typography {...props} lineHeight={2.5} pb={3} />
+              ),
+            }}
+          >
+            {contents[currentPage]}
+          </ReactMarkdown>
+          {contents.length > 1 && (
+            <Pagination
+              count={contents.length}
+              onChange={(e, page) => setCurrentPage(page)}
+            />
+          )}
+          <Box position={"fixed"} bottom={40} right={20}>
+            <Button variant="contained" onClick={() => setShowAnswer(true)}>
+              Questions
+            </Button>
+          </Box>
+          <QuestionDialog
+            title={title}
+            show={showAnswer}
+            onClose={() => setShowAnswer(false)}
+            questions={questions}
           />
-        )}
-        <Box position={"fixed"} bottom={40} right={20}>
-          <Button variant="outlined" onClick={() => setShowAnswer(true)}>
-            Questions
-          </Button>
-        </Box>
-        <QuestionDialog
-          title={title}
-          show={showAnswer}
-          onClose={() => setShowAnswer(false)}
-          questions={questions}
-        />
-      </Stack>
+        </Stack>
+      </Container>
     </>
   );
 }
