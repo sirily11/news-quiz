@@ -12,7 +12,7 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
-import { GetServerSideProps } from "next";
+import { GetStaticProps, GetStaticPaths } from "next";
 import React from "react";
 import Head from "next/head";
 import { Quiz } from "../../lib/question";
@@ -21,8 +21,9 @@ import path from "path";
 import glob from "glob";
 import YAML from "yaml";
 import ReactMarkdown from "react-markdown";
-import CloseIcon from "@mui/icons-material/Close";
 import QuestionDialog from "../../lib/components/QuestionDialog";
+
+const quizFolder = "quizzes";
 
 interface Props {
   contents: string[];
@@ -78,11 +79,19 @@ export default function Index({ title, contents, questions }: Props) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps<Props> = async (
-  context
-) => {
-  const { id } = context.query;
-  const quizFolder = "quizzes";
+export const getStaticPaths: GetStaticPaths = () => {
+  const folder = path.join(process.cwd(), quizFolder);
+  const folders = fs.readdirSync(folder);
+
+  return {
+    paths: folders.map((folder) => ({ params: { id: folder } })),
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<Props> = async (context) => {
+  const { id } = context.params!;
+
   // check if folder exists
   const folder = path.join(process.cwd(), quizFolder, id as string);
   const exists = fs.existsSync(folder);
