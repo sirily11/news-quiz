@@ -36,12 +36,3 @@ blockquote::before {
 blockquote::after {
   content: "";
 }
-
-
-@font-face {
-  font-family: "DancingScript";
-  src: url('../public/fonts/DancingScript-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-  
