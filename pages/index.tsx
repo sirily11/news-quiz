@@ -20,7 +20,7 @@ const Home: NextPage = () => {
           <Image src={"/coffee.webp"} height={300} width={300} />
         </Box>
         <Typography color={"white"} fontSize={30}>
-          Coffee with Twinkle and siri!
+          Coffee with Twinkle and Siri!
         </Typography>
       </Stack>
     </Box>
