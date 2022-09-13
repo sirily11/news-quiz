@@ -40,9 +40,11 @@ export default function Index({ title, contents, questions }: Props) {
       <Head>
         <title>{title}</title>
       </Head>
-      <AppBar elevation={0}>
+      <AppBar elevation={1} sx={{ background: "white" }} variant="outlined">
         <Toolbar>
-          <Typography textTransform={"capitalize"}>{title}</Typography>
+          <Typography textTransform={"capitalize"} color="black">
+            {title}
+          </Typography>
         </Toolbar>
       </AppBar>
       <Container>

@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../lib/question.schema.json
+
+- title: 请简单概括全文内容
+  type: text
+
+- title:  赌场大多准备将设备迁移到哪里？
+  type: multiselect
+  choices:
+    - title: 新加坡
+      correct: true
+    - title: 越南
+      correct: false
+    - title: 马来西亚
+      correct: false
+    - title: 菲律宾
+      correct: true
+    - title: 韩国
+      correct: false
+    - title: 日本
+      correct: false
+  explanation:  Light & Wonder Inc., a leading provider of products used in casinos, is relocating its expatriate staff to the Philippines. |
+    Another equipment maker from Japan is also shifting employees to the Philippines and Singapore.
+- title: 澳门的赌场在疫情前的年收入有多少
+  type: select
+  choices:
+    - title: 272 million
+      correct: false
+    - title: 36 billion
+      correct: true
+    - title: 49 million
+      correct: false
+    - title: 7 million
+      correct: false
+    - title: 70 billion
+      correct: false
+  explanation:  Macau’s gambling market – heavily reliant on mainland customers – was six times bigger than Vegas’s, with annual revenue of US$36 billion.
+
+- title: 澳门的博彩业为何不再景气了？
+  hint: 为何很多博彩公司把重心转移到别的国家去了？
+  type: multiselect
+  choices:
+    - title: 疫情导致海外游客不在
+      correct: true
+    - title: 中国游客来的少了
+      correct: true
+    - title: 中国政府限制了赌博
+      correct: true
+    - title: 开发新的游戏软件对于小博彩公司来说压力太大
+      correct: true
+    - title: 澳门政府准备禁止博彩业
+      correct: false
+    - title: 博彩收入太低，导致政府不再重视博彩业
+      correct: false
+    - title: 博彩业与犯罪有关
+      correct: true
+  explanation: 1. high-rolling gamblers in the territory as part of a campaign against money-laundering, corruption and capital flight. |
+    2. people are staying away, fearful of getting trapped in a snap lockdown like those that have also enveloped Chinese cities such as Shanghai, Sanya and Chengdu. |
+    3. Macau ceded that crown back to Las Vegas as Covid lockdowns and China’s travel bans choked off the usual flood of people coming in by air, sea and land. |
+    4. Macau is also revamping standards for electronic gaming machines, requiring manufacturers to design new software, which could be particularly costly and challenging for smaller suppliers. |
+    5. To secure new licenses and as part of Beijing’s push to reduce Macau’s reliance on gambling, casino operators must commit to investing in non-gaming areas such as Chinese medicine and technology. 
+
+- title: "请翻译下列对话: “Macau can’t expect normal services to resume as before,” said Cheng. “The Macau of old is a thing of the past.”"
+  type: text
+  explanation: 不要再期待澳门能恢复到以前了，程说。澳门的过去光辉已经被埋葬。
+
+- title: 开放式问题，结合横琴地区被并入澳门特区的发展中，你觉得澳门的未来在哪里？
+  type: text
+  hint: 你可以从以下几个方面考虑：政府的政策，博彩业的发展，澳门的地理位置，澳门的历史，澳门的文化，澳门的经济，澳门的人口和大小等等考虑。|
+    注意⚠️，横琴目前规划是在大多部分追随澳门法律，包括金融开放程度，互联网开放程度以及法律法规等等。|
+    
