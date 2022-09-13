@@ -70,7 +70,7 @@ export default function QuestionDialog(props: Props) {
       return;
     }
     getImage();
-  }, [image, questions]);
+  }, [image, questions, isEditable]);
 
   return (
     <Dialog
